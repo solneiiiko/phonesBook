@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru_RU" ng-app="MainApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Телефонный справочник|PhonesBook</title>
+        <link href="./assets/css/app.css" rel="stylesheet">
+        <script src="./assets/js/libraries.js"></script>
+        <script src="./assets/js/app.js"></script>
+    </head>
+    <body ng-controller="MainCtrl as main">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                {{ main.header }}
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="main.LoginService.isAuth()">
+                    <a href="" ng-click="main.LoginService.logout()"><i class="glyphicon glyphicon-log-out"></i> Выйти</a>
+                </li>
+                <li ng-if="!main.LoginService.isAuth()">
+                    <a href="" ng-click="main.LoginService.login()"><i class="glyphicon glyphicon-log-in"></i> Войти</a>
+                </li>
+            </ul>
+        </nav>
+        <div ng-view>
+            <!-- вьюшки идут сюда -->
+        </div>
+    </body>
+</html>

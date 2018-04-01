@@ -1,0 +1,23 @@
+<div>
+	<table ng-if="users.length">
+		<th></th>
+		<tr ng-repeat="user in users">
+			<td><img ng-src="{{user.photoUrl || ('data:image/gif;base64,' + user.photoBase64)}}"></td>
+			<td>{{user.lastName}}</td>
+			<td>{{user.firstName}}</td>
+			<td>{{user.middleName}}</td>
+			<td>
+				<ul>
+					<li ng-repeat="phone in user.phones">
+						{{phone.title}} - {{phone.phone}}
+					</li>
+				</ul>
+			</td>
+			<td>{{user.departmentId}}</td>
+			<td>{{user.birthDate}}</td>
+			<td>{{user.jobTitle}}</td>
+			<td>{{user.email}}</td>
+		</tr>
+	</table>
+	<div ng-if="!users.length">Крутилка.gif</div>
+</div>
