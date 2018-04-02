@@ -27,7 +27,15 @@ function ($http, $q, ROUTES, SessionService) {
 
         //Если сессия есть, то допишем. Если ее нет, то и будем считать, что ее не нужно
         if (SessionService.get()) {
-            url += '/' + SessionService.get();
+            url += '/' + SessionService.get();  
+        }
+
+        if (httpMethod === 'GET') {
+            data = data || {};
+
+            url += '?' + Object.keys(data).map(function(key) {
+                return [key, encodeURIComponent(data[key])].join('=');
+            }).join('&');
         }
         
         return url;

@@ -17,11 +17,25 @@ function MainCtrl($scope, $location, ROUTES, LoginService, ApiService) {
 		return;
 	}
 
-	var data;
+	$scope.ROUTES = ROUTES;
+
+	var data = {
+		//departmentId: 26103,
+		// page: 2,
+		// pageSize: 3,
+		// orderBy: 'Id',
+		// ascending: true,
+		// nameQuery: ''
+	};
+
 
 	ApiService.get('Users', data)
 		.then(function(response) {
-			console.log('res');
 			$scope.users = response.data.items;
 		});
+
+
+	// begin_region private functions
+
+	// end_region private functions
 }]);

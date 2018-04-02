@@ -1,0 +1,17 @@
+<div ng-repeat="user in users">
+	<img ng-src="{{user.photoUrl || ('data:image/gif;base64,' + user.photoBase64)}}">
+	<div>{{user.lastName}}</div>
+	<div>{{user.firstName}}</div>
+	<div>{{user.middleName}}</div>
+	<div>
+		<ul>
+			<li ng-repeat="phone in user.phones">
+				{{phone.title}} - {{phone.phone}}
+			</li>
+		</ul>
+	</div>
+	<div>{{user.departmentId}}</div>
+	<div>{{user.birthDate | date:'dd-MM-yyyy' }}</div>
+	<div>{{user.jobTitle}}</div>
+	<div>{{user.email}}</div>
+</div>

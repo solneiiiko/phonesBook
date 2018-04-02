@@ -9,9 +9,7 @@
     </head>
     <body ng-controller="MainCtrl as main">
         <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                {{ main.header }}
-            </div>
+            <div class="navbar-header" ng-bind="main.header"></div>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-if="main.LoginService.isAuth()">
                     <a href="" ng-click="main.LoginService.logout()"><i class="glyphicon glyphicon-log-out"></i> Выйти</a>

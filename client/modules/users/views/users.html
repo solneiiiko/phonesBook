@@ -1,23 +1,25 @@
 <div>
-	<table ng-if="users.length">
-		<th></th>
-		<tr ng-repeat="user in users">
-			<td><img ng-src="{{user.photoUrl || ('data:image/gif;base64,' + user.photoBase64)}}"></td>
-			<td>{{user.lastName}}</td>
-			<td>{{user.firstName}}</td>
-			<td>{{user.middleName}}</td>
-			<td>
-				<ul>
-					<li ng-repeat="phone in user.phones">
-						{{phone.title}} - {{phone.phone}}
-					</li>
-				</ul>
-			</td>
-			<td>{{user.departmentId}}</td>
-			<td>{{user.birthDate}}</td>
-			<td>{{user.jobTitle}}</td>
-			<td>{{user.email}}</td>
-		</tr>
-	</table>
-	<div ng-if="!users.length">Крутилка.gif</div>
+	<div>
+		<div class="btn-group btn-group-justified" role="group" ng-init="itemTemplate = 'list'">
+			<div class="btn-group" role="group">
+				<button type="button"
+					class="btn btn-default"
+					ng-click="itemTemplate = 'list'"
+					ng-class="{active: itemTemplate === 'list'}">
+						<i class="glyphicon glyphicon-th-list"></i>
+				</button>
+				
+				<button type="button"
+					class="btn btn-default"
+					ng-click="itemTemplate = 'cards'"
+					ng-class="{active: itemTemplate === 'card'}">
+						<i class="glyphicon glyphicon-th"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<ng-include src="'/modules/users/views/_' + itemTemplate + '.html'"></ng-include>
+
+	<div ng-hide="users.length">Крутилка.gif</div>
 </div>

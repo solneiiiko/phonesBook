@@ -5,7 +5,7 @@ MainApp.service('SessionService',
 function() {
     'use strict';
 
-	var _key = '';
+	var _key = 'c318cdce-8564-4bfb-9c43-ee6b1391e1c4';//'';
 
     this.set = function(session) {
         if (_key) {
